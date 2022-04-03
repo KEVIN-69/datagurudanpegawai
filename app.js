@@ -14,7 +14,7 @@ var pegawai = require('./routes/pegawai');
 var expressValidator = require('express-validator');
 var methodOverride = require('method-override');
 var connection = require('express-myconnection');
-var mysql = require('mysql');
+var mysql = require('mysql2');
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,11 +44,11 @@ type koneksi : single,pool and request
 -------------------------------------------*/
 app.use(
     connection(mysql,{
-        host: 'localhost',
+        host: 'containers-us-west-26.railway.app',
         user: 'root', // your mysql user
-        password : '', // your mysql password
-        port : 3307, //port mysql
-        database:'gurudanpegawai' // your database name
+        password : 'V3eYmiQmTNU6wdmnlfTa', // your mysql password
+        port : 5972, //port mysql
+        database: 'railway' // your database name
     },'pool') //or single
 );
 app.use('/', index);
