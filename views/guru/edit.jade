@@ -1,0 +1,71 @@
+extends ../layout/base 
+block content 
+	section.content-header 
+		h1 
+			| Edit Data Guru
+		
+	section.content
+		.box
+			.box-header.with-border
+				h3.box-title
+					| Edit Data Guru
+				.box-tools.pull-right
+					button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+						i.fa.fa-minus
+					
+			.box-body
+				form(role='form',method='post' action='/guru/edit/#{(id_guru==undefined) ? data.id_guru : id_guru}' enctype='multipart/form-data')
+					.row
+						
+						.col-xs-6
+							.box-body
+								- if (messages.msg_error) 
+									.alert.alert-danger.alert-dismissable 
+										button.close(type='button', data-dismiss='alert', aria-hidden='true') 
+											| ×
+										h4
+											i.icon.fa.fa-ban
+											| Alert! 
+										| !{messages.msg_error}
+								- if (messages.msg_info) 
+									.alert.alert-success.alert-dismissable 
+										button.close(type='button', data-dismiss='alert', aria-hidden='true') 
+											| ×
+										h4
+											i.icon.fa.fa-ban
+											| Success! 
+										| !{messages.msg_info}
+								.form-group
+									label
+										| NIP
+									input(type='text',value="#{data.id_guru}",name='id_guru',placeholder='Enter NIP', disabled).form-control
+								.form-group
+									label
+										| Nama Guru
+									input(type='text',value="#{ (nama == undefined) ? data.nama : nama }",name='nama',placeholder='Enter Nama Guru', autofocus).form-control
+								.form-group
+									label
+										| Agama
+									input(type='text',value="#{ (agama == undefined) ? data.agama : agama }",name='agama',placeholder='Enter Agama').form-control
+								.form-group
+									label
+										| Jenis Kelamin
+									input(type='text',value="#{ (jeniskelamin == undefined) ? data.jeniskelamin : jeniskelamin }",name='jeniskelamin',placeholder='Enter Jenis Kelamin').form-control
+									label
+										| Jabatan
+									input(type='text',value="#{ (jabatan == undefined) ? data.jabatan : jabatan }",name='jabatan',placeholder='Enter Jabatan').form-control
+								.form-group
+									label
+										| Ijazah
+									input(type='text',value="#{ (ijazah == undefined) ? data.ijazah : ijazah }",name='ijazah',placeholder='Enter Ijazah').form-control
+								.form-group
+									label
+										| Foto
+									input(type='file',name='gambar').form-control
+							.box-footer
+								input(type="hidden",name="_method", value="PUT")
+								button(type='submit').btn.btn-success
+									i.fa.fa-pencil 
+									|  Edit
+								a(href='/guru').btn.btn-primary.pull-right
+									| Back

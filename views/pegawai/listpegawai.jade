@@ -1,0 +1,83 @@
+extends ../layout/base 
+block content 
+	section.content-header 
+		h1 
+			| Data Pegawai
+		ol.breadcrumb 
+			li 
+				a(href='/dashboard') 
+					i.fa.fa-home
+					| Home
+			li.active Menu CRUD
+			li.active Data Pegawai
+	section.content
+		.box
+			.box-header.with-border
+				h3.box-title
+					| Crud Data Pegawai
+				.box-tools.pull-right
+					button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+						i.fa.fa-minus
+			.box-body
+				- if(messages.msg_info)
+					.alert.alert-success.alert-dismissable
+						button.close(type='button', data-dismiss='alert', aria-hidden='true')
+							| ×
+						h4
+							i.icon.fa.fa-check
+							| Success!
+						| !{messages.msg_info}
+				- if(messages.msg_error)
+					.alert.alert-danger.alert-dismissable
+						button.close(type='button', data-dismiss='alert', aria-hidden='true')
+							| ×
+						h4
+							i.icon.fa.fa-ban
+							| Alert!
+						| !{messages.msg_error}
+				a(href='pegawai/add').pull-left.btn.btn-primary
+					i.fa.fa-plus 
+					|  Tambah Pegawai
+				.data-table 
+				
+					table.table.table-bordered
+						tr
+							th
+								| No
+							th
+								| Id Pegawai
+							th
+								| Nama
+							th
+								| Agama
+							th
+								| Jenis Kelamin
+							th
+								| Jabatan
+							th
+								| Foto
+							th
+								| Action
+							if messages.msg_error
+								| !{messages.msg_error}
+							else
+								for row, index in data 
+									tr
+										td #{index+1}
+										td #{row.id_pegawai}
+										td #{row.nama_pegawai}
+										td #{row.agama}
+										td #{row.jenis_kelamin}
+										td #{row.jabatan}
+										td 
+											img(src="/images/upload/#{row.gambar}" height=170 width=150 style="border-radius:10px")
+										td
+											div(style='display:inline-block')
+												a(href='/pegawai/edit/#{row.id_pegawai}').btn.btn-sm.btn-warning
+														i.fa.fa-edit
+											| 
+											div(style='display:inline-block')
+												form(method='post', action='/pegawai/delete/#{row.id_pegawai}')
+													input(type="hidden",name="_method", value="DELETE")
+													button.btn.btn-sm.btn-danger(type='submit')
+														i.fa.fa-trash

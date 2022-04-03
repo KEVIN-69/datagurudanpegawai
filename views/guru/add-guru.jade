@@ -1,0 +1,62 @@
+extends ../layout/base
+block content
+    section.content-header
+        h1
+            | Tambah Guru
+            
+    section.content
+        .box
+            .box-header.with-border
+                h3.box-title
+                    | Tambah Data Guru
+                .box-tools.pull-right
+                    button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+                        i.fa.fa-minus
+
+            .box-body
+                form(role='form',method='post' action='/guru/add' enctype='multipart/form-data')
+                    .row
+
+                        .col-xs-6
+                            .box-body
+                                - if (messages.msg_error)
+                                    .alert.alert-danger.alert-dismissable
+                                        button.close(type='button', data-dismiss='alert', aria-hidden='true')
+                                            | ×
+                                        h4
+                                            i.icon.fa.fa-ban
+                                            | Alert!
+                                        | !{messages.msg_error}
+                                .form-group
+                                    label
+                                        | NIP
+                                    input(type='text',value='#{id_guru}',name='id_guru',placeholder='Enter NIP', autofocus).form-control
+                                .form-group
+                                    label
+                                        | Nama
+                                    input(type='text',name='nama',placeholder='Enter Nama Guru').form-control
+                                .form-group
+                                    label
+                                        | Agama
+                                    input(type='text',value='#{agama}',name='agama',placeholder='Enter Agama').form-control
+                                .form-group
+                                    label
+                                        | Jenis Kelamin
+                                    input(type='text',name='jeniskelamin',placeholder='Enter Jenis Kelamin').form-control
+                                    label
+                                        | Jabatan
+                                    input(type='text',value='#{jabatan}',name='jabatan',placeholder='Enter Jabatan').form-control
+                                .form-group
+                                label
+                                        | Ijazah
+                                    input(type='text',value='#{ijazah}',name='ijazah',placeholder='Enter Ijazah').form-control
+                                .form-group
+                                label
+                                        | Foto
+                                    input(type='file',name='gambar',placeholder='Masukkan Gambar').form-control
+                            .box-footer
+                                button(type='submit').btn.btn-success
+                                    | Submit
+
+                                a(href='/guru').btn.btn-primary.pull-right
+                                    | Back

@@ -1,0 +1,58 @@
+extends ../layout/base
+block content
+    section.content-header
+        h1
+            | Tambah Pegawai
+        
+    section.content
+        .box
+            .box-header.with-border
+                h3.box-title
+                    | Tambah Data Pegawai
+                .box-tools.pull-right
+                    button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+                        i.fa.fa-minus
+
+            .box-body
+                form(role='form',method='post' action='/pegawai/add' enctype='multipart/form-data')
+                    .row
+
+                        .col-xs-6
+                            .box-body
+                                - if (messages.msg_error)
+                                    .alert.alert-danger.alert-dismissable
+                                        button.close(type='button', data-dismiss='alert', aria-hidden='true')
+                                            | ×
+                                        h4
+                                            i.icon.fa.fa-ban
+                                            | Alert!
+                                        | !{messages.msg_error}
+                                .form-group
+                                    label
+                                        | Id Pegawai
+                                    input(type='text',value='#{id_pegawai}',name='id_pegawai',placeholder='Enter Id Pegawai', autofocus).form-control
+                                .form-group
+                                    label
+                                        | Nama Pegawai
+                                    input(type='text',name='nama_pegawai',placeholder='Enter Nama Pegawai').form-control
+                                .form-group
+                                    label
+                                        | Agama
+                                    input(type='text',name='agama',placeholder='Enter Agama').form-control
+                                .form-group
+                                    label
+                                        | Jenis Kelamin
+                                    input(type='text',name='jenis_kelamin',placeholder='Enter Jenis Kelamin').form-control
+                                    label
+                                        | Jabatan
+                                    input(type='text',value='#{jabatan}',name='jabatan',placeholder='Enter Jabatan').form-control
+                                .form-group
+                                    label
+                                        | Foto
+                                    input(type='file',name='gambar',placeholder='Masukkan Gambar').form-control
+                                .box-footer
+                                button(type='submit').btn.btn-success
+                                    | Submit
+
+                                a(href='/pegawai').btn.btn-primary.pull-right
+                                    | Back

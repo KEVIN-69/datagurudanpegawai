@@ -1,0 +1,46 @@
+aside.main-sidebar
+    section.sidebar
+        .user-panel
+            .pull-left.image
+                img(src='/images/profile.png',alt='User Image').img-circle
+            .pull-left.info
+                p ADMIN
+                a(href='#')
+                    i.fa.fa-circle.text-success
+                    | Online
+        
+        ul.sidebar-menu
+          
+            li.treeview
+                a(href='/dashboard')
+                    i.fa.fa-home
+                    span
+                        | DASHBOARD
+            li.header
+                | MENU CRUD
+            li.treeview
+                a(href='#')
+                    i.fa.fa-edit
+                    span
+                        | DATA GURU
+                    span.pull-right-container
+                        i.fa.fa-angle-left.pull-right
+                ul.treeview-menu
+                    li
+                        a(href='/guru')
+                            i.fa.fa-align-left
+                            | CRUD DATA GURU
+                    
+            li.treeview
+                a(href='#')
+                    i.fa.fa-edit
+                    span
+                        | DATA PEGAWAI
+                    span.pull-right-container
+                        i.fa.fa-angle-left.pull-right
+                ul.treeview-menu
+                    li
+                        a(href='/pegawai')
+                            i.fa.fa-align-left
+                            | CRUD PEGAWAI
+                    

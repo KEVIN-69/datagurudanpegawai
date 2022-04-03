@@ -1,0 +1,56 @@
+header.main-header
+    a(href='/').logo
+        span.logo-mini
+            <b>ADM</b>
+        span.logo-lg
+            <b>ADMIN MENU</b>
+    nav(role='navigation').navbar.navbar-static-top
+        a(href='#', role='button', data-toggle='offcanvas').sidebar-toggle
+            span.sr-only Toggle Navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        div.navbar-custom-menu
+            ul.nav.navbar-nav
+                li.dropdown.messages-menu
+                    a(href='#', data-toggle='dropdown').dropdown-toggle
+                        i.fa.fa-envelope
+                        span.label.label-warning
+                            | 1
+                    ul.dropdown-menu
+                        li.header
+                            | Anda memiliki 1 pesan belum dibaca
+                        li
+                            ul.menu
+                                li
+                                    a(href='#')
+                                        .pull-left
+                                            img(src='/images/profile.png',alt="User image").img-circle
+                                        h4
+                                            | Team IT
+                                            small
+                                                i.fa.fa-clock-o 20 mins
+                                        p
+                                            | Halo
+                        li.footer
+                            a(href='#')
+                                | Liat semua pesan
+
+                  li.dropdown.user.user-menu
+                        a(href='#',data-toggle='dropdown').dropdown-toggle
+                            img(src='/images/profile.png',alt='UserImage').user-image
+                            span.hidden-xs
+                                | ADMIN
+                        ul.dropdown-menu
+                            li.user-header
+                                img(src='/images/profile.png',alt='UserImage').img-circle
+                                p
+                                    | ADMIN
+                                   
+                           
+                            .text-white
+                            .pull-center
+                                    a(href="/logout").btn.btn.btn-block.btn-flat
+                                        | Sign out
+                               
+                            
